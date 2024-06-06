@@ -1,5 +1,6 @@
 import { Field, Form, Formik } from "formik"
 import { useState } from "react"
+import { callhelloApi, registerNewUser } from "./Api/Api";
 
 export default function Register(){
     
@@ -8,15 +9,21 @@ export default function Register(){
 
     function onSubmit(values){
         const register={
-            username: values.username,
+            userName: values.username,
             password: values.password,
-            birthdate: values.birthdate,
-            phonenumber: values.phonenumber,
+            birthDate: values.birthdate,
+            phoneNumber: values.phonenumber,
             gender: values.gender,
             email: values.email
-        }
-        console.log(register);
+        };
+        
+        registerNewUser(register)
+        .then(response=>console.log(response))
+        .catch(error=>console.log(error))
+        .finally(console.log('done'))
     }
+
+    
 
     return(
         <div className="container">
