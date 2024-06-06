@@ -19,6 +19,11 @@ public class RegisterController {
         return registerRepo.findById(id).get();
     }
 
+    @GetMapping(path="/findByUsername/{username}")
+    public Register findByName(@PathVariable String username){
+        return registerRepo.findByuserName(username);
+    }
+
     @PostMapping(path="/register/{userName}")
     public Register registerNewUser(@PathVariable String userName, @RequestBody Register data){
         return registerRepo.save(data);

@@ -20,6 +20,9 @@ public class Register {
     private String gender;
     private String email;
 
+    public Register() {
+    }
+
     public Register(int id, String userName, String password, LocalDate birthDate, String phoneNumber, String gender, String email) {
         this.id = id;
         this.userName = userName;
